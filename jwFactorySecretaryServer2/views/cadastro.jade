@@ -1,0 +1,135 @@
+html
+    head
+        meta(http-equiv="X-UA-Compatible", content="ie=edge") 
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/cadastro/cadastro.css")
+        link(rel="stylesheet", href="/css/cadastro/addPub.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat&display=swap")
+        link(rel="stylesheet", href="/css/hambMenu.css")
+        title Cadastro
+    body
+        div(class="container")
+            nav
+                div(class="dropdown")
+                    button(onclick="openMenu()" class="dropbtn") Menu
+                    div(id="myDropdown" class="dropdown-content")
+                        a( href='http://localhost:3000/cards') Cartões de Publicadores
+                        a( href='http://localhost:3000/groups') Grupos - Lista de Publicadores
+                        a( href='http://localhost:3000/disasters') Desastres - Contatos dos irmãos
+                        a( href='http://localhost:3000/activities') Atividades dos Publicadores
+                        a(class="restrito" href='http://localhost:3000/meetings') Incluir Assistência às Reuniões
+                        a(class="restrito" href='http://localhost:3000/reports') Incluir Relatórios
+                        a(class="restrito" href='http://localhost:3000/readAllPublishers') Cadastrar Publicadores
+            section(class="resume")
+                div(class='carrousel-container') Resumo da Congregação
+                    div(class='myFrames fade')
+                        p
+                            strong Tt.Pub:
+                                span #{params.param2}
+                        p
+                            strong Ativos:
+                                span #{params.param3}
+                        p
+                            strong Inat:
+                                span #{params.param4}
+
+                    div(class='myFrames fade' style='display:none')
+                        p
+                            strong P.Reg:
+                                span #{params.param5}
+                        p
+                            strong Anci:
+                                span 5
+                        p
+                            strong Servos:
+                                span 7
+                    div(class='myFrames fade' style='display:none')
+                        p
+                            strong Batiz:
+                                span #{params.param6}
+                        
+                        p
+                            strong Ñ-Bat:
+                                span #{params.param7}
+                    div(class='myFrames fade' style='display:none')
+                        
+                        p
+                            strong Famil:
+                                span #{params.param9}
+                        p
+                            strong Desass:
+                                span #{params.param8}
+                    a(class="prev" onclick="plusSlides(-1)") &#10094;
+                    a(class="next" onclick="plusSlides(1)") &#10095;
+                div(style="text-align:center")
+                    span(class="dot" onclick="currentSlide(1)")
+                    span(class="dot" onclick="currentSlide(2)")
+                    span(class="dot" onclick="currentSlide(3)")
+                    span(class="dot" onclick="currentSlide(4)")
+
+            section
+                div(class="addForm") 
+                    button(onclick="openForm()" class='dropAdding') &#43;
+                    form(action="/readAllPublishers", method="post" class="pubForm")
+                        div(class="add identif")
+                            input(
+                                type="text"
+                                class="add large"
+                                name='nome'
+                                placeholder="Nome Completo"
+                                required
+                            )
+                        div(class="add info")
+                            select(name="sexo" required)
+                                option(value="M") Masculino
+                                option(value="F") Feminino
+                            select(name="grupo" required)
+                                option(value="arp") Arpoador
+                                option(value="bel") Belem
+                                option(value="sil") Silvia
+                            select(name="posicao" required)
+                                option(value="pub") Publicador
+                                option(value="reg") Pioneiro Regular
+                                option(value="dsc") Desassociado
+                                option(value="flc") Falecido
+                        div(class="add adress")
+                            input(type="text" class="add large" name="endereco" placeholder="Endereço")
+                        div(class="add contact")
+                            input(type="text" name="bairro" placeholder="Bairro")
+                            input(type="text" name="tel" placeholder="Telefone")
+                            input(type="text" name="cell" placeholder="Celular")
+                        div(class="add other")
+                            label Dt.Nasc:
+                            input(type="date" name="nascimento")
+                            label Dt.Bat:
+                            input(type="date" name="batismo")
+                            input(type="text" name="pastoreio" placeholder="Família")
+                        div(class="add send")
+                            input(type="submit" value="Salvar")
+                                
+                                
+
+
+                            
+            main
+                each val in params.param1
+                    ol
+                        button(class="btnPub" onclick="splitPanel(this)")
+                            div(style='width:calc(95vw - 40vw); overflow:hidden;')= val._nome
+                            div(style='width:18vw')= val._grupo
+                            div(style='width:22vw; overflow: hidden;')= val._posicao
+                        div(class="scdInfo")
+                            div(class="secChild")
+                                div(style='width:35vw')=val._endereco
+                                div(style='width:18vw')=val._bairro
+                                div(style='width:18vw')=val._tel
+                                div(style='width:18vw')=val._celular    
+                            div(class="secChild")
+                                div(style='width:30vw')= val._nascimento
+                                div(style='width:30vw')= val._batismo  
+                                div(style='width:30vw')= val._pastoreio       
+        script(src="/scripts/cadastro/cadastro.js")
+        script(src="/scripts/hambMenu.js")
+        
+

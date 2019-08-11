@@ -1,0 +1,27 @@
+table
+                    caption Resumo da Congregação
+                    tr
+                        th Tt.Public
+                        td 
+                        th Public.Ativos
+                        td
+                        th Inativos
+                        td
+                        th Pion. Regulares  
+                        td
+                        th Anciaos
+                        td
+                        th Servos Mini.
+                        td
+                        th Batizados
+                        td
+                        th Não-Batiz    
+                        td
+                        th Irreg. 6 Mes 
+                        td 
+                        th Pion.Aux.Ano 
+                        td
+                        th Famílias
+                        td
+                        th Desassociados
+                        td

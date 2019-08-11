@@ -1,0 +1,42 @@
+.dropAdding{
+    background-color: #3498db;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align-last: center;
+}
+.dropAdding:hover, .dropAdding:focus{
+    background-color: #2980b9;
+}
+.addForm{
+    position: relative;
+    display: inline-block;
+}
+.pubForm{
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    width: 95vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 5px;
+}
+.pubForm div{
+    margin-top: 5px;
+    border-radius: 4px;
+}
+.add{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.large{
+    width: 100%;
+}
+.show{display: block};
